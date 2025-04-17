@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monte seu Hambúrguer - MC LINDA</title>
+  <style>
+    :root {
+      --rosa-principal: #ff2f68;
+      --amarelo-vintage: #fdd835;
+      --bege-claro: #fff8e1;
+      --vermelho-vivo: #d50000;
+      --cinza: #555;
+    }
+    body {
+      font-family: 'Arial Rounded MT Bold', 'Comic Sans MS', cursive, sans-serif;
+      background: var(--bege-claro);
+      margin: 0;
+      padding: 20px;
+      color: var(--cinza);
+      background-image: repeating-linear-gradient(
+        45deg,
+        #fff8e1,
+        #fff8e1 10px,
+        #ffe082 10px,
+        #ffe082 20px
+      );
+    }
+    .container {
+      max-width: 650px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255, 47, 104, 0.3);
+      border: 5px double var(--rosa-principal);
+      background-image: linear-gradient(to bottom right, #fffdf7, #ffe0e0);
+    }
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      color: var(--rosa-principal);
+      text-shadow: 1px 1px var(--amarelo-vintage);
+      background: var(--amarelo-vintage);
+      padding: 10px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      border: 3px solid var(--rosa-principal);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .checkbox-group, .radio-group {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid var(--rosa-principal);
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .submit-btn {
+      background-color: var(--rosa-principal);
+      color: white;
+      border: 3px solid var(--amarelo-vintage);
+      padding: 15px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      display: block;
+      margin: 30px auto;
+      box-shadow: 2px 2px var(--amarelo-vintage);
+      transition: 0.2s ease;
+    }
+    .submit-btn:hover {
+      background-color: var(--vermelho-vivo);
+      box-shadow: none;
+    }
+    .resumo {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .novo-pedido-btn {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .novo-pedido-btn:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/03/audio_434c2bc1bb.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+  <div class="container">
+    <h1>Monte seu Hambúrguer 🍔✨</h1>
+    <form id="burgerForm">
+      <label for="nome">👤 Seu nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome..." required />
+
+      <label>🥬 Ingredientes:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="ingredientes" value="Cheddar" /> 🧀 Cheddar</label>
+        <label><input type="checkbox" name="ingredientes" value="Requeijão Cremoso" /> 🧈 Requeijão Cremoso</label>
+        <label><input type="checkbox" name="ingredientes" value="Bacon" /> 🥓 Bacon</label>
+        <label><input type="checkbox" name="ingredientes" value="Picles" /> 🥒 Picles</label>
+        <label><input type="checkbox" name="ingredientes" value="Alface" /> 🥗 Alface</label>
+        <label><input type="checkbox" name="ingredientes" value="Rúcula" /> 🌿 Rúcula</label>
+        <label><input type="checkbox" name="ingredientes" value="Molho Especial" /> 🍯 Molho Especial</label>
+        <label><input type="checkbox" name="ingredientes" value="Tomate" /> 🍅 Tomate</label>
+        <label><input type="checkbox" name="ingredientes" value="Hambúrguer" /> 🍖 Hambúrguer</label>
+        <label><input type="checkbox" name="ingredientes" value="Cebola Caramelizada" /> 🧅 Cebola Caramelizada</label>
+        <label><input type="checkbox" name="ingredientes" value="Geleia de Pimenta" /> 🌶️ Geleia de Pimenta</label>
+        <label><input type="checkbox" name="ingredientes" value="Pão" /> 🍞 Pão</label>
+      </div>
+
+      <label>🥤 Bebida:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="bebida" value="Coca-Cola" required /> 🥤 Coca-Cola</label>
+        <label><input type="radio" name="bebida" value="Fanta" /> 🍊 Fanta</label>
+        <label><input type="radio" name="bebida" value="Água" /> 💧 Água</label>
+        <label><input type="radio" name="bebida" value="Cerveja" /> 🍺 Cerveja</label>
+      </div>
+
+      <button class="submit-btn" type="submit">🍔 Enviar Pedido</button>
+    </form>
+
+    <div class="resumo" id="resumoPedido" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('burgerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nomeInput = document.getElementById('nome');
+      const bebidaInput = document.querySelector('input[name="bebida"]:checked');
+
+      if (!nomeInput.value.trim()) {
+        alert('Por favor, informe seu nome.');
+        nomeInput.focus();
+        return;
+      }
+
+      if (!bebidaInput) {
+        alert('Por favor, selecione uma bebida.');
+        return;
+      }
+
+      const nome = nomeInput.value.trim();
+      const ingredientes = [...document.querySelectorAll('input[name="ingredientes"]:checked')].map(e => e.value);
+      const bebida = bebidaInput.value;
+
+      let resumoHTML = `<h3>🍽️ Resumo do Pedido</h3>`;
+      resumoHTML += `<p><strong>👤 Nome:</strong> ${nome}</p>`;
+      resumoHTML += `<p><strong>🧂 Ingredientes:</strong> ${ingredientes.length ? ingredientes.join(', ') : 'Nenhum ingrediente selecionado'}</p>`;
+      resumoHTML += `<p><strong>🥤 Bebida:</strong> ${bebida}</p>`;
+      resumoHTML += `<button class="novo-pedido-btn" onclick="refazerPedido()">🔁 Refazer Pedido</button>`;
+
+      const resumoDiv = document.getElementById('resumoPedido');
+      resumoDiv.innerHTML = resumoHTML;
+      resumoDiv.style.display = 'block';
+
+      document.getElementById('burgerForm').style.display = 'none';
+    });
+
+    function refazerPedido() {
+      document.getElementById('burgerForm').reset();
+      document.getElementById('resumoPedido').style.display = 'none';
+      document.getElementById('burgerForm').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
