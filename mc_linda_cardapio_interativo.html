@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Monte seu Hambúrguer - MC LINDA</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fff8f0;
+            color: #333;
+            padding: 2em;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #d12e82;
+            text-align: center;
+        }
+        h2 {
+            color: #e67300;
+        }
+        form {
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffc1e3;
+        }
+        label {
+            display: block;
+            margin: 0.5em 0;
+        }
+        .section {
+            margin-bottom: 2em;
+        }
+        button {
+            background-color: #d12e82;
+            color: white;
+            padding: 0.7em 2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 2em auto 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monte seu Hambúrguer</h1>
+    <form>
+        <div class="section">
+            <h2>Ingredientes</h2>
+            <label><input type="checkbox" name="ingredientes" value="cheddar"> Cheddar</label>
+            <label><input type="checkbox" name="ingredientes" value="requeijao"> Requeijão Cremoso (tipo catupiry)</label>
+            <label><input type="checkbox" name="ingredientes" value="bacon"> Bacon</label>
+            <label><input type="checkbox" name="ingredientes" value="picles"> Picles</label>
+            <label><input type="checkbox" name="ingredientes" value="alface"> Alface</label>
+            <label><input type="checkbox" name="ingredientes" value="rucula"> Rúcula</label>
+            <label><input type="checkbox" name="ingredientes" value="molho"> Molho Especial</label>
+            <label><input type="checkbox" name="ingredientes" value="tomate"> Tomate</label>
+            <label><input type="checkbox" name="ingredientes" value="hamburguer"> Hambúrguer</label>
+            <label><input type="checkbox" name="ingredientes" value="cebola"> Cebola Caramelizada</label>
+            <label><input type="checkbox" name="ingredientes" value="geleia"> Geleia de Pimenta</label>
+            <label><input type="checkbox" name="ingredientes" value="pao"> Pão</label>
+        </div>
+
+        <div class="section">
+            <h2>Bebidas</h2>
+            <label><input type="checkbox" name="bebidas" value="coca"> Coca-Cola</label>
+            <label><input type="checkbox" name="bebidas" value="fanta"> Fanta</label>
+            <label><input type="checkbox" name="bebidas" value="agua"> Água</label>
+            <label><input type="checkbox" name="bebidas" value="cerveja"> Cerveja</label>
+        </div>
+
+        <button type="submit">Enviar Pedido</button>
+    </form>
+</body>
+</html>
